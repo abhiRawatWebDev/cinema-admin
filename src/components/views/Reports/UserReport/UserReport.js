@@ -1,6 +1,20 @@
 import React from 'react';
+import Table from "../../../shared/Table";
 
 class UserReport extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            reportData: []
+        }
+    }
+    reportColumns = [
+        {labelKey:'First Name', valueKey: 'first_name'},
+        {labelKey:'Last Name', valueKey: 'last_name'},
+        {labelKey:'Contact', valueKey: 'contact'},
+        {labelKey:'Email', valueKey: 'email'}
+    ];
+
     render() {
         return (
             <div id="wrapper">
@@ -15,40 +29,7 @@ class UserReport extends React.Component {
                                             <h3 className="panel-title">Registered Users</h3>
                                         </div>
                                         <div className="panel-body">
-                                            <table className="table table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>Address</th>
-                                                        <th>City</th>
-                                                        <th>State</th>
-                                                        <th>Status</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Steve</td>
-                                                        <td>Jobs</td>
-                                                        <td>@steve</td>
-                                                        <td>@steve</td>
-                                                        <td>@steve</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Simon</td>
-                                                        <td>Philips</td>
-                                                        <td>@simon</td>
-                                                        <td>@simon</td>
-                                                        <td>@simon</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Jane</td>
-                                                        <td>Doe</td>
-                                                        <td>@jane</td>
-                                                        <td>@jane</td>
-                                                        <td>@jane</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                            <Table reportColumns={this.reportColumns} gridData={this.state.reportData}></Table>
                                         </div>
                                     </div>
                                 </div>
